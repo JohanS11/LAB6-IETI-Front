@@ -1,45 +1,44 @@
 import React, {Component} from 'react';
-import logo from './components/logo.svg';
+import logo from './logo.svg';
 import './App.css';
-import {Login} from "./components/Login";
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom'
-import Drawer from './components/Drawer';
-import { Redirect } from 'react-router-dom';
-import { SignUp } from './components/SignUp';
-
+import UserList from './components/UserList'
 
 
 class App extends Component {
 
     constructor(props) {
-        super(props); 
-    
+        super(props);
+        this.state = {
+            usersList: [],
+        };
+    }
+
+    componentDidMount() {
+        fetch('http://backend.eastus.azurecontainer.io:8080')
+            .then(response => response.json())
+            .then(data => {
+                console.log("dataaaa");
+                console.log(data);
+                let userList = [];
+                data.forEach(function (user) {
+                    userList.push({
+                       user
+                    })
+                });
+        
+                this.setState({usersList: userList});
+                
+               
+            });
     }
 
     render() {
-
         return (
-
-            <Router>
-                <Switch>
-                    <Route path="/"
-                    component={Login} exact> </Route>
-                    
-                    <Route path="/signup"
-                    component={SignUp} exact> </Route>
-
-                    <Route path="/todo"
-                        component={Drawer} exact> </Route>
-
-                    <Route path="/logout" render={()=>{
-                        localStorage.clear();
-                        return <Redirect to="/"></Redirect>;
-                        }} exact />
-                </Switch>
-            
-            </Router>
+            <div>
+                <UserList usersList={this.state.usersList}/>
+            </div>
         );
-
     }
 }
+
 export default App;
