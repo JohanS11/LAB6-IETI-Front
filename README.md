@@ -1,5 +1,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## BACKEND REST API 
+
+ This API was built with Spring Boot Source Code ------> https://github.com/JohanS11/LAB6-IETI-Backend/tree/master
+ 
+ This API was deployed in a container from **Azure Container Instances** .
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](http://backend.eastus.azurecontainer.io:8080)
+
+## Lab Walktrough
+
+https://github.com/ieti-eci/2.1-task-planner-api
+
 ## Available Scripts
 
 In the project directory, you can run:
