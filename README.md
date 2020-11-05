@@ -1,6 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
+## NOTE
+
+El contenedor está abajo, avisar para levantarlo en caso de revisión!!
+
+
 ## BACKEND REST API 
 
  This API was built with Spring Boot Source Code ------> https://github.com/JohanS11/LAB6-IETI-Backend/tree/master
